@@ -27,6 +27,9 @@
     <ClInclude Include="deck_setup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="play_blackjack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="deck_setup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="play_blackjack.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
