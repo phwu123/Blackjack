@@ -6,6 +6,12 @@
 #include "deck_setup.h"
 #include "enums_struct.h"
 
+void incrementAce(const Card *card, int &aces)
+{
+  if (getCardValue(*card) == 11)
+    ++aces;
+}
+
 bool playerChoice()
 {
   std::cout << "\nYour turn\n";
@@ -31,13 +37,15 @@ bool playBlackjack(const std::array<Card, 52> &deck)
 {
   //initialize match
   const Card *cardptr = &deck[0];
-  int dealerTotal{0}, playerTotal{0};
+  int dealerTotal{0}, dealerAces{0}, playerTotal{0}, playerAces{0};
   std::cout << "Dealer draws a card and places it face down\n";
   int down{getCardValue(*cardptr)};
   dealerTotal += down;
   ++cardptr;
+  incrementAce(cardptr, dealerAces);
   std::cout << "\nDealer draws a ";
   printCard(*cardptr);
+  incrementAce(cardptr, dealerAces);
   dealerTotal += getCardValue(*cardptr++);
   if (dealerTotal == 21)
   {
@@ -47,18 +55,27 @@ bool playBlackjack(const std::array<Card, 52> &deck)
   std::cout << " and has a total of " << dealerTotal - down << " plus the value of the face-down card\n";
   std::cout << "The dealer deals a ";
   printCard(*cardptr);
+  incrementAce(cardptr, playerAces);
   playerTotal += getCardValue(*cardptr++);
   std::cout << " and a ";
   printCard(*cardptr);
+  incrementAce(cardptr, playerAces);
   playerTotal += getCardValue(*cardptr++);
   std::cout << " to you.\n\nYou have a total of " << playerTotal << "\n";
   while (playerChoice())
   {
     std::cout << "\nThe dealer deals a ";
     printCard(*cardptr);
+    incrementAce(cardptr, playerAces);
     playerTotal += getCardValue(*cardptr++);
     std::cout << " to you.\nYou have a total of " << playerTotal << "\n";
-    if (playerTotal > 21)
+    if (playerTotal > 21 && playerAces)
+    {
+      playerAces -= 1;
+      playerTotal -= 10;
+      std::cout << "One ace counts as 1\nYou have a total of " << playerTotal << "\n";
+    }
+    if (playerTotal > 21 && playerAces == 0)
     {
       std::cout << "Bust! You lose \n";
       return 0;
@@ -70,9 +87,16 @@ bool playBlackjack(const std::array<Card, 52> &deck)
   {
     std::cout << "\nDealer draws a ";
     printCard(*cardptr);
+    incrementAce(cardptr, dealerAces);
     dealerTotal += getCardValue(*cardptr++);
     std::cout << " and has a total of " << dealerTotal << "\n";
-    if (dealerTotal > 21)
+    if (dealerTotal > 21 && dealerAces)
+    {
+      dealerAces -= 1;
+      dealerTotal -= 10;
+      std::cout << "One ace now counts as 1\nDealer has a total of " << dealerTotal << "\n";
+    }
+    if (dealerTotal > 21 && dealerAces == 0)
     {
       std::cout << "Dealer busts, you win!";
       return 1;
