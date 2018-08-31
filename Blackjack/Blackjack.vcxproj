@@ -23,7 +23,7 @@
     <ProjectGuid>{2C37D130-5522-41F5-8A9D-CECB22249975}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Blackjack</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -147,16 +147,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="deck_setup.h" />
-    <ClInclude Include="enums_struct.h" />
-    <ClInclude Include="play_blackjack.h" />
+    <ClInclude Include="BlackjackGame.h" />
+    <ClInclude Include="card.h" />
+    <ClInclude Include="CardGamesSetup.h" />
+    <ClInclude Include="deck.h" />
+    <ClInclude Include="PlayBlackjack.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Blackjack.cpp" />
-    <ClCompile Include="deck_setup.cpp" />
-    <ClCompile Include="play_blackjack.cpp" />
+    <ClCompile Include="CardGames.cpp" />
+    <ClCompile Include="card.cpp" />
+    <ClCompile Include="CardGamesSetup.cpp" />
+    <ClCompile Include="deck.cpp" />
+    <ClCompile Include="BlackjackGame.cpp" />
+    <ClCompile Include="PlayBlackjack.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

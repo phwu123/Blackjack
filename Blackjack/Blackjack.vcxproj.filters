@@ -21,13 +21,19 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="enums_struct.h">
+    <ClInclude Include="card.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="deck_setup.h">
+    <ClInclude Include="deck.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="play_blackjack.h">
+    <ClInclude Include="BlackjackGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayBlackjack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CardGamesSetup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,13 +41,22 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Blackjack.cpp">
+    <ClCompile Include="card.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="deck_setup.cpp">
+    <ClCompile Include="deck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="play_blackjack.cpp">
+    <ClCompile Include="CardGames.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackjackGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayBlackjack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CardGamesSetup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
